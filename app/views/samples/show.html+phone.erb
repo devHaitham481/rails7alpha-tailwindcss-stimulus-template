@@ -1,0 +1,137 @@
+<%# 样品名称 %>
+<div class="bg-white text-black-6c m-1 px-1.5 py-2.5">
+  <div class="my-1 flex">
+    <img class="flex-initial" style="max-width: 50%;" src="<%= image_pack_path('static/big_sample_picture.jpg') -%>" alt="">
+    <dl class="flex-auto ml-2">
+      <h3 class="text-base mb-2 font-medium">黄金麻（样品）</h3>
+      <p class="text-xs whitespace-nowrap">样品编号：
+        <span class="font-medium">A07010</span>
+      </p>
+      <p class="text-xs whitespace-nowrap">价格区间：
+        <span class="font-medium">100-350/㎡</span>
+      </p>
+      <p class="text-xs whitespace-nowrap">产品/二级分类名称：
+        <span class="font-medium">黄金麻</span>
+      </p>
+      <p class="text-xs whitespace-nowrap">产品/二级分类编号：
+        <span class="font-medium">A07013</span>
+      </p>
+      <p class="text-xs whitespace-nowrap">色系：
+        <span class="font-medium">黄色</span>
+      </p>
+      <p class="text-xs whitespace-nowrap">色号：
+        <span class="font-medium">868688</span>
+      </p>
+      <p class="text-xs whitespace-nowrap">产品规格/型号：
+        <span class="font-medium">30*30 cm</span>
+      </p>
+      <p class="text-xs whitespace-nowrap">表面效果：
+        <span class="font-medium">荔枝面</span>
+      </p>
+      <div class="text-xs whitespace-nowrap" data-controller="modal" data-modal-allow-background-close="true">储存位置：
+        <a href="#" data-action="click->modal#open">
+          <span class="font-medium underline">A-3-25</span>
+        </a>
+        <!-- Modal Container -->
+        <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center" style="z-index: 9999;">
+          <!-- Modal Inner Container -->
+          <div class="max-h-screen w-full max-w-7xl relative">
+            <!-- Modal Card -->
+            <div class="m-1 bg-white rounded shadow">
+              <div class="p-8">
+                <figure>
+                  <img src="<%= image_pack_path('static/sample_location.png') -%>" alt="">
+                  <figcaption class="text-center mt-2">样板位置: A-3-25</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dl>
+  </div>
+  <h5 class="text-base mt-4">其他样品</h5>
+  <div class="pt-2 pb-3 overscroll-x-auto overflow-x-auto shadow-sm">
+    <div class="flex flex-nowrap min-w-max">
+      <% %w[黄金麻 卡基诺金 世贸金麻 山东黄锈 莆田黄锈 卡拉麦里金 紫点金麻].each_with_index do |name, i| %>
+        <% pic_url = "static/new_mat_g#{i+1}.jpg" -%>
+        <div class="mx-px first:mx-px w-16">
+          <img class="w-full object-contain" src="<%= image_pack_path(pic_url) -%>" alt="">
+          <h3 class="text-center text-xs my-2 whitespace-nowrap"><%= name -%></h3>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%# 厂家信息 %>
+<div class="bg-white text-black-6c m-1 px-1.5 py-2">
+  <h5 class="text-base font-medium my-2">厂家信息</h5>
+
+  <div class="flex bg-gray-200 border border-gray-200 border-solid px-1 my-3">
+    <div class="flex justify-center items-center px-2 py-3">
+      <img class="w-full border border-gray-300 border-solid" src="<%= image_pack_path('static/logo-1-1.jpg') -%>" alt="">
+    </div>
+    <div class="px-2 py-3">
+      <h5 class="text-base font-medium mb-2">东丽石材</h5>
+      <p class="text-xs text-gray-700">联系人：13717634543</p>
+      <p class="text-xs text-gray-700">邮箱：564738476@qq.com</p>
+      <p class="text-xs text-gray-700">厂家地址：山东</p>
+      <p class="text-xs text-gray-700">联系电话：65383736</p>
+      <p class="text-xs text-gray-700">是否愿意提供材料样品：是</p>
+    </div>
+  </div>
+</div>
+
+<%# 产品案例 %>
+<div class="bg-white text-black-6c text-xs px-1.5 pt-2 pb-5 mt-2">
+  <h5 class="text-base font-medium m-1">产品案例</h5>
+  <div class="grid grid-cols-2 gap-y-2">
+    <div class="mx-1">
+      <div class="relative">
+        <img class="w-full" src="<%= image_pack_path('static/project_new_g1.jpg') -%>" alt="">
+        <div class="absolute right-1 bottom-1 text-white text-right">
+          <p class="text-xs">内部项目</p>
+        </div>
+        <div class="absolute left-1 bottom-1 text-white text-left">
+          <p class="text-white text-right text-xs">荔枝面黄金麻</p>
+        </div>
+      </div>
+      <div class="text-black-6c text-left">
+        <p class="text-xs mt-1">融创徐汇滨江壹号 / 上海</p>
+        <p class="text-xs">Shanghai West Bund Park</p>
+      </div>
+    </div>
+    <div class="mx-1">
+      <div class="relative">
+        <img class="w-full" src="<%= image_pack_path('static/project_new_g2.jpg') -%>" alt="">
+        <div class="absolute right-1 bottom-1 text-white text-right">
+          <p class="text-xs">内部项目</p>
+        </div>
+        <div class="absolute left-1 bottom-1 text-white text-left">
+          <p class="text-white text-right text-xs">荔枝面黄金麻</p>
+        </div>
+      </div>
+      <div class="text-black-6c text-left">
+        <p class="text-xs mt-1"><%= '合肥北城中央公园中小学'.truncate(10) -%> / 安徽合肥</p>
+        <p class="text-xs">Shanghai West Bund Park</p>
+      </div>
+    </div>
+    <div class="mx-1">
+      <div class="relative">
+        <img class="w-full" src="<%= image_pack_path('static/project_new_g3.jpg') -%>" alt="">
+        <div class="absolute right-1 bottom-1 text-white text-right">
+          <p class="text-xs">内部项目</p>
+        </div>
+        <div class="absolute left-1 bottom-1 text-white text-left">
+          <p class="text-white text-right text-xs">光面黄金麻</p>
+        </div>
+      </div>
+      <div class="text-black-6c text-left">
+        <p class="text-xs mt-1"><%= '北京大兴龙湖天街'.truncate(10) -%> / 北京</p>
+        <p class="text-xs">Shanghai West Bund Park</p>
+      </div>
+    </div>
+  </div>
+</div>
+
