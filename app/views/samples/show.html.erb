@@ -1,0 +1,128 @@
+<%= render partial: 'shared/header', locals: { } -%>
+
+<p class="mx-4 px-48 pt-8 text-sm text-gray-500">首页 > 石材 > 花岗岩 > 黄金麻 > <span class="text-black">黄金麻样品</span></p>
+
+<div class="flex flex-row px-48">
+  <section class="w-full mr-6 max-w-lg lg:max-w-xl xl:max-w-5xl flex flex-col">
+    <%# 产品样品 %>
+    <div class="mx-4 mt-7 mb-4 border-b-2 border-gray-100 border-solid pb-3">
+      <span class="text-2xl font-bold ml-px mr-2 border-b-2 border-gray-900 border-solid" style="padding-bottom: 0.9rem">产品样品</span><span class="text-xl font-light">Samples</span>
+    </div>
+    <div class="mx-4 mt-4 flex gap-4">
+      <img class="w-80 h-80" src="<%= image_pack_path('static/big_sample_picture.jpg') -%>" alt="">
+      <div class="ml-4 relative">
+        <h2 class="text-xl font-medium"><%= @sample.material.name -%></h2>
+        <dl class="absolute bottom-0 w-120 text-sm">
+            <dt class="mt-2 inline-block w-1/2">样品编号：</dt>
+            <dd class="mt-2 inline"><%= @sample.no %></dd>
+
+            <dt class="mt-2 inline-block w-1/2">价格：</dt>
+            <dd class="mt-2 inline"><%= @sample.low_price -%>-<%= @sample.high_price -%>/㎡</dd>
+
+            <dt class="mt-2 inline-block w-1/2">产品/二级分类名称：</dt>
+            <dd class="mt-2 inline"><%= @sample.material.name -%></dd>
+
+            <dt class="mt-2 inline-block w-1/2">产品/二级分类编号：</dt>
+            <dd class="mt-2 inline"><%= @sample.material.no -%></dd>
+
+            <dt class="mt-2 inline-block w-1/2">色系：</dt>
+            <dd class="mt-2 inline"><%= @sample.material.color -%></dd>
+
+            <dt class="mt-2 inline-block w-1/2">色号：</dt>
+            <dd class="mt-2 inline"><%= @sample.color_code -%></dd>
+
+            <dt class="mt-2 inline-block w-1/2">产品规格/型号：</dt>
+            <dd class="mt-2 inline"><%= @sample.spec_model -%></dd>
+
+            <dt class="mt-2 inline-block w-1/2">表面效果：</dt>
+            <dd class="mt-2 inline"><%= @sample.surface_effect&.description -%></dd>
+
+            <dt class="mt-2 inline-block w-1/2">存储位置：</dt>
+            <dd class="mt-2 inline" data-controller="modal" data-modal-allow-background-close="true">
+              <a href="#" data-action="click->modal#open">
+                <span class="underline"><%= @sample.position -%></span>
+              </a>
+              <!-- Modal Container -->
+              <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center" style="z-index: 9999;">
+                <!-- Modal Inner Container -->
+                <div class="max-h-screen w-full max-w-7xl relative">
+                  <!-- Modal Card -->
+                  <div class="m-1 bg-white rounded shadow">
+                    <div class="p-8">
+                      <figure>
+                        <img src="<%= image_pack_path('static/sample_location.png') -%>" alt="">
+                        <figcaption class="text-center mt-2">样板位置: <%= @sample.position -%></figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </dd>
+        </dl>
+      </div>
+    </div>
+
+    <%# 厂家信息 %>
+    <div class="mx-4 mt-16 mb-4 border-b-2 border-gray-100 border-solid pb-3">
+      <span class="text-2xl font-bold ml-px mr-2 border-b-2 border-gray-900 border-solid" style="padding-bottom: 0.9rem">厂家信息</span><span class="text-xl font-light">Information</span>
+    </div>
+    <div class="mx-4 mt-4 grid grid-cols-5 gap-4">
+      <div class="row-span-2">
+        <div class="border border-gray-300 border-solid mx-auto">
+          <img class="w-full" src="<%= image_pack_path('static/logo-2-1.jpg') -%>" alt="">
+        </div>
+      </div>
+      <dl class="my-4 border-l border-gray-300 border-solid pl-3 py1">
+        <dt class="text-gray-400">厂家名称</dt>
+        <dd class=""><%= @sample.manufacturer&.name -%></dd>
+      </dl>
+      <dl class="my-4 border-l border-gray-300 border-solid pl-3 py1">
+        <dt class="text-gray-400">联系人</dt>
+        <dd class=""><%= @sample.manufacturer&.contact -%></dd>
+      </dl>
+      <dl class="my-4 border-l border-gray-300 border-solid pl-3 py1">
+        <dt class="text-gray-400">邮箱</dt>
+        <dd class=""><%= @sample.manufacturer&.website -%></dd>
+      </dl>
+      <dl></dl>
+      <dl class="my-4 border-l border-gray-300 border-solid pl-3 py1">
+        <dt class="text-gray-400">厂家地址</dt>
+        <dd class=""><%= @sample.manufacturer&.location -%></dd>
+      </dl>
+      <dl class="my-4 border-l border-gray-300 border-solid pl-3 py1">
+        <dt class="text-gray-400">联系电话</dt>
+        <dd class=""><%= @sample.manufacturer&.contact_information -%></dd>
+      </dl>
+      <dl class="my-4 border-l border-gray-300 border-solid pl-3 py1">
+        <dt class="text-gray-400">是否愿意送样</dt>
+        <dd class=""><%= @sample.manufacturer&.is_allow -%></dd>
+      </dl>
+      <dl></dl>
+    </div>
+
+    <%# 附件下载 %>
+    <div class="mx-4 mt-16 mb-4 border-b-2 border-gray-100 border-solid pb-3">
+      <span class="text-2xl font-bold ml-px mr-2 border-b-2 border-gray-900 border-solid" style="padding-bottom: 0.9rem">附件下载</span><span class="text-xl font-light">Download</span>
+    </div>
+    <div class="mx-4 mt-4 grid grid-cols-5 gap-4">
+      <% %w[下载全部 公司介绍 相关证书 产品图册 工艺节点 监测报告 CAD BIM 三视图 其他].each do |word| %>
+      <a class="p-4 shadow-tw-dark font-medium bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        <%= word %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+        </svg>
+      </a>
+      <% end %>
+    </div>
+
+    <%# 所属案例  %>
+  <%= turbo_frame_tag "projects" do %>
+    <%= render partial: 'projects', locals: { sample: @sample, cases: @cases } -%>
+  <% end %>
+  </section>
+
+  <%# 其他样品 %>
+  <%= turbo_frame_tag "other_samples" do %>
+    <%= render partial: 'other_samples', locals: { sample: @sample, other_samples: @other_samples } -%>
+  <% end %>
+</div>
